@@ -48,10 +48,11 @@ float baseproimposto(float rendimentos,float inss, float dedependente){
 }
 
 float impostorenda(float baseimp){
-    float impostototal=0;
+    float a,impostototal=0;
         printf("Quantidade de imposto bruto por faixa:\n0%%= Isento\n");
         if(baseimp>2826.65){
             impostototal+=142.80;
+            a=impostototal;
             printf("7,5%%=%.2f\n",impostototal);
         }else if(baseimp>2112 && baseimp<=2826.65){
         impostototal+=baseimp-2112;
@@ -59,21 +60,25 @@ float impostorenda(float baseimp){
     }
     if(baseimp>3751.05){
         impostototal+=354.80;
-        printf("15%%=%.2f\n",impostototal);
+        printf("15%%=%.2f\n",impostototal-a);
+        a=impostototal;
     }else if(baseimp>2826.65 && baseimp<=3751.05){
         impostototal+=(baseimp-2826.65)*0.15;
-        printf("15%%=%.2f\n",impostototal);
+        printf("15%%=%.2f\n",impostototal-a);
+        a=impostototal;
     }
     if(baseimp>4664.68){
         impostototal+=636.13;
-        printf("25%%=%.2f\n",impostototal);
+        printf("25%%=%.2f\n",impostototal-a);
+        a=impostototal;
     }else if(baseimp>3751.05 && baseimp<=4664.68){
         impostototal+=(baseimp-4664.68)*0.225;
-        printf("25%%=%.2f\n",impostototal);
+        printf("25%%=%.2f\n",impostototal-a);
+        a=impostototal;
     }
     if(baseimp>4664.68){
         impostototal+=(baseimp-4664.68)*0.275;
-         printf("27.5%%=%.2f\n",impostototal);
+         printf("27.5%%=%.2f\n",impostototal-a);
     }
     return impostototal;
 }
